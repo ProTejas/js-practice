@@ -101,21 +101,52 @@ function rightHandTraingle(num) {
     }
 }
 
-let arr = [4, 5, 1, 2, 1, 4];
-let dupli = [];
-for (let i = 0; i <= arr.length; i++) {
-    let currentChar = 0
-    for (let j = 0; j < arr.length; j++) {
-        if (arr[i] == arr[j]) {
-            currentChar += 1;
+/* ------------ Medium Quetion------------------ */
+
+function sumOfEvenNums(arr) {
+    return arr.filter((arr) => arr % 2 == 0).reduce((acc, el) => acc + el);
+}
+
+function maxNum(arr) {
+    return Math.max(...arr);
+}
+
+function reverseStr(arr) {
+    return arr.split('').reverse().join('');
+}
+
+function duplicateNum(arr) {
+    return arr.filter((item, index, self) => self.indexOf(item) !== index && self.lastIndexOf(item) === index);
+}
+
+
+function flatArr(arr) {
+    let flatArr = [];
+    const stringArr = arr.toString().split(',');
+    for (let char of stringArr) {
+        if (!isNaN(char) && char.trim() !== '') {
+            flatArr.push(Number(char));
+        } else {
+            flatArr.push(char);
         }
     }
-    if(currentChar > 1){
-        dupli.push(arr[i])
-    }
-    
+    return flatArr;
 }
-console.log(dupli);
+
+function deepClone(data) {
+    if (typeof data !== 'object' || data === null) {
+        return data; // Return primitives as-is
+    }
+
+    const clone = Array.isArray(data) ? [] : {};
+
+    for (let key in data) {
+        if (data.hasOwnProperty(key)) {
+            clone[key] = deepClone(data[key]);
+        }
+    }
+
+    return clone;
+}
 
 
-/* ------------ Medium Quetion------------------ */
