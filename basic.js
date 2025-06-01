@@ -148,3 +148,25 @@ function deepClone(data) {
 
     return clone;
 }
+
+function protoType(name) {
+    this.name = name
+    console.log(name);
+
+}
+protoType('tejas');
+
+function secondLarget(arr) {
+    let firstLargeNum = -Infinity;
+    let secondLargNum = -Infinity;
+    for (let num of arr) {
+        if (num > firstLargeNum) {
+            secondLargNum = firstLargeNum
+            firstLargeNum = num
+        }
+        else if (num > secondLargNum && num != firstLargeNum) {
+            secondLargNum = num;
+        }
+    }
+    return secondLargNum;
+}
